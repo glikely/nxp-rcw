@@ -1,0 +1,4 @@
+#include <configs/lx2160a_defaults.rcwi>
+#include <configs/lx2160a_2400_700_3200.rcwi>
+#include <configs/lx2160a_8_5_2.rcwi>
+#include <configs/lx2160a_sdboot.rcwi>

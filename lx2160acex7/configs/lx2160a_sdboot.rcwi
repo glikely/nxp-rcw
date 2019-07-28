@@ -1,0 +1,20 @@
+/* Errata to write on scratch reg for validation */
+#include <../lx2160asi/scratchrw1.rcw>
+
+/* Copy SPL Uboot to Ocram */
+.pbi
+blockcopy 0x08,0x00100000,0x1800a000,0x00020000
+.end
+
+/* Boot Location Pointer */
+#include <../lx2160asi/bootlocptr_sd.rcw>
+
+/* Errata for SATA controller */
+#include <../lx2160asi/a010554.rcw>
+
+/* Errata for PCIe controller */
+#include <../lx2160asi/a011270.rcw>
+
+/* common PBI commands */
+#include <../lx2160asi/common.rcw>
+
