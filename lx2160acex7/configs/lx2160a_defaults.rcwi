@@ -1,10 +1,6 @@
 #include <../lx2160asi/lx2160a.rcwi>
 MEM_PLL_CFG=3
 MEM2_PLL_CFG=3
-C5_PLL_SEL=0
-C6_PLL_SEL=0
-C7_PLL_SEL=0
-C8_PLL_SEL=0
 HWA_CGA_M1_CLK_SEL=1
 HWA_CGB_M1_CLK_SEL=7
 BOOT_LOC=26
@@ -22,3 +18,20 @@ IRQ07_04_PMUX=1
 IRQ11_08_PMUX=1
 EVT20_PMUX=1
 EVT43_PMUX=1
+
+/* Drive the fan full speed pin */
+.pbi
+write 0x2320000,0x20000000
+.end
+
+/* Errata for SATA controller */
+#include <../lx2160asi/a010554.rcw>
+
+/* Errata for rev 1 PCIe controller */
+#include <../lx2160asi/a011270.rcw>
+
+/* Errata a050234 - fix elastic buffer threshold in rev 1 */
+#include <../lx2160asi/a050234.rcw>
+
+/* LX2 rev 2 PCIe Errata A-009531 and A-008851*/
+#include <../lx2160asi/a009531_a008851.rcw>
